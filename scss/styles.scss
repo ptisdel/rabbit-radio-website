@@ -1,0 +1,217 @@
+* {
+    box-sizing:border-box;  
+    font-family: "DK Harimau", sans-serif;
+    margin:0;
+    padding:0;
+}
+
+body {
+    overflow-x:hidden;
+}
+
+#page-titles {
+    position:fixed;
+    z-index:1;
+    padding: 35px;
+    
+    h1 {        
+        line-height:0.9em;
+
+        .title {
+            font-size: 46px;
+            color: #FC9550;
+            font-weight:400;
+            text-decoration:none;
+        }
+
+    }
+    
+    .subtitle {
+        color:black;
+        letter-spacing: -0.5px;
+    }
+    
+}
+
+#chapters_list {
+    
+    position:absolute;
+    top:0;
+    bottom: 120px;
+    left:0;
+    padding-left: 50vw;
+    margin-left: -29vh; /* 3 from margin-left, 15 from half of the 30 width of the icon */
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    transition:all 0.6s;
+    
+    .chapter-button {
+          
+        position:relative;
+        margin-left:2vh;
+        margin-right:2vh;
+        
+        .icon {
+            position:relative;
+            background-color: #ecedf2;
+            border-radius: 50%;
+            height: 22vh;
+            width: 22vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition:all 0.6s;
+            cursor:pointer;    
+            overflow: hidden;
+            
+            .number {
+                font-size: 10vh;
+                color: #bdbfc8;
+                margin-top: 0.15em;  
+                transition:all 0.6s;
+            }
+            
+            &::after {             
+                content: "";
+                background: url(../images/bunny.jpg);
+                background-size: cover;
+                opacity: 0;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                position: absolute;
+                transition:all 0.6s;
+            }
+         }
+        
+        .titles {
+            position:absolute;
+            top:100%;
+            padding-top:20px;
+            opacity:0;
+            transition:all 0.6s;
+            text-align:center;
+            left: 50%;
+            transform: translateX(-50%);
+            
+            .title {
+                white-space: nowrap;
+                font-size: 40px;
+                line-height: 1em;
+            }
+            .subtitle {
+                white-space: nowrap;
+                font-size: 20px;
+            } 
+            
+            .read-chapter-btn {
+                display:inline-block;
+                text-decoration:none;
+                background-color: #fc9550;
+                border: 0;
+                outline: none;
+                margin-top: 15px;
+                padding: 7px 21px 3px 21px;
+                color: white;
+                text-transform: uppercase;
+                cursor:pointer;
+                
+                &:hover {
+                    background-color:#d86d25;
+                }
+            }
+        }    
+        
+        
+        &.selected {
+            
+            margin-right: 4vh;
+            margin-left: 4vh;
+            
+            .icon {
+                width:50vh;
+                height:50vh;
+                background-color: #E3E5ED;
+                
+                .number {
+                    opacity:0;
+                }
+                
+                &::after {
+                    opacity:1;
+                }
+            }
+            
+            .titles {
+                opacity:1;
+            }
+        }
+        
+        
+    
+    }
+    
+}
+
+
+.chapter {
+    padding-top:100px;    
+    width:100%;
+    max-width:800px;
+    margin:auto;
+    
+    .titles {
+        margin-bottom:40px;
+        text-align:center;
+
+        .title {
+            font-size: 40px;
+            line-height: 1em;
+        }
+
+        .subtitle {
+            font-size: 20px;
+        } 
+    }    
+    
+    .sample-pane {
+        height:280px;
+        background-color:#E3E5ED;
+        margin-bottom:15px;
+    }
+    
+}
+
+#chapters-menu {
+    
+    position:fixed;
+    padding: 35px;
+    top:0;
+    right:0;
+    
+    li {
+        
+        list-style-type:none;
+        margin-bottom:10px;
+      
+        a {
+            color:black;
+            text-decoration:none;
+            cursor:pointer;
+        }
+
+        &.read a {
+            color:#bfbfbf;
+        }
+
+        &.selected a {
+            color:#FC9550;
+        }
+        
+          
+    }
+    
+    
+}
